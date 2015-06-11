@@ -53,3 +53,5 @@ gem 'rails_layout'
 
 
 gem 'simple_form'
+#criar paginas dinamicas que nao tenham um modelo
+gem 'high_voltage'
