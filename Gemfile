@@ -2,11 +2,13 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.9'
+gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-
+# framework front end para melhorar o layout da aplicação
+# excutar comando de instalacao após rails layout
+# comando: rails g layout:install foundation5 --force
 gem 'foundation-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~>5.0.0'
@@ -44,14 +46,27 @@ gem 'spring',        group: :development
 # gem 'debugger', group: [:development, :test]
 
 group :development do
+
+  #exibe os erros de forma mais amigavel, com mais detalhes.
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
 end
 
+# gem para gerar arquivos para o layout da aplicaçao - e fazer a msm passe a utilzar
+# HTML5, navigation links and flash messages, instalar primeiro
+# comando para aplicar: rails g layout:install simple --force
 gem 'rails_layout'
 
-
+# gem para facilitar a criação de formulários html.
+# insatalar depois do rails_layout e framework front-end
+#comando para aplicar: rails g simple_form:install --foundation
+# --fondation deve ser trocado pelo framwork que utilizar ex: fondation, --bootstrap
 gem 'simple_form'
-#criar paginas dinamicas que nao tenham um modelo
+
+
+#criar paginas estáticas/dinamicas que nao tenham um modelo e podem ou não ter controladores.
+# cria uma rota pages... para incluir páginas basta criar a pasta views/pages e inserir as paginas.
+# chamada: localhost:3000/pagina
+# caso a página execute alguma funcionalidade pode ser criado o controller para tal.
 gem 'high_voltage'
