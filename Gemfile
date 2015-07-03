@@ -74,3 +74,7 @@ gem 'high_voltage'
 # depois de instalado a gem executar o comando: rails generate devise:install ( para instalar o devise na app)
 #rails generate devise MODEL
 gem 'devise'
+
+group :production do
+  gem 'rails_12factor' #
+end
