@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  devise_for :users
   #post 'contact', to: 'contacts#process_form'
 
   root to: 'visitors#new'

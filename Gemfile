@@ -72,4 +72,5 @@ gem 'high_voltage'
 
 # 5- autenticaçao e controle de usuário
 # depois de instalado a gem executar o comando: rails generate devise:install ( para instalar o devise na app)
-#gem 'devise'
+#rails generate devise MODEL
+gem 'devise'

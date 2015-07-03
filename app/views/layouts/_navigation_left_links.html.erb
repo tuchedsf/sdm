@@ -1,3 +1,9 @@
 <%# add navigation links to this file %>
+
+
+<%if user_signed_in? %>
+<li><%= link_to 'Systems', systems_path %> </li>
+<%end%>
+
 <li><%= link_to 'About', page_path('about') %></li>
 <li><%= link_to 'Contact', new_contact_path %> <!--#contact_path('new')--></li>
