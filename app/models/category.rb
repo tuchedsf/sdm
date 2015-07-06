@@ -1,5 +1,6 @@
 class Category < ActiveRecord::Base
 
-  validates_presence_of :descricao, :ativo
+  belongs_to :system
+  validates_presence_of :descricao, :ativo, :system_id
 
 end

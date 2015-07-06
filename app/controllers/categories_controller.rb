@@ -70,7 +70,7 @@ class CategoriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def category_params
-      params.require(:category).permit(:descricao, :ativo)
+      params.require(:category).permit(:descricao, :ativo, :system_id)
       #Rails.logger.debug "DEBUG: params are #{params}"
     end
 end

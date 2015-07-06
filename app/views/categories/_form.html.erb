@@ -11,6 +11,12 @@
     </div>
   <% end %>
 
+
+  <div class="field">
+    <%= f.label "Sistema" %><br>
+    <%= f.collection_select(:system_id, System.all, :id, :nome) %>
+  </div>
+
   <div class="field">
     <%= f.label :descricao %><br>
     <%= f.text_field :descricao %>
