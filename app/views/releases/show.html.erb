@@ -1,0 +1,24 @@
+
+<p>
+  <strong>System:</strong>
+  <%= @release.system.nome %>
+</p>
+
+
+<p>
+  <strong>Versao:</strong>
+  <%= @release.versao %>
+</p>
+
+<p>
+  <strong>Data Implantação:</strong>
+  <%= @release.dt_implantacao %>
+</p>
+
+<p>
+  <strong>Descrição:</strong>
+  <%= @release.descricao %>
+</p>
+
+<%= link_to 'Edit', edit_release_path(@release) %> |
+<%= link_to 'Back', releases_path %>

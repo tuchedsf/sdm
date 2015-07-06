@@ -1,0 +1,39 @@
+<%= form_for(@release) do |f| %>
+  <% if @release.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@release.errors.count, "error") %> prohibited this release from being saved:</h2>
+
+      <ul>
+      <% @release.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label "Sistema" %><br>
+    <%= f.collection_select(:system_id, System.all, :id, :nome) %>
+
+
+  </div>
+  <div class="field">
+    <%= f.label :versao %><br>
+    <%= f.text_field :versao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :dt_implantacao %><br>
+    <%= f.date_field :dt_implantacao %>
+  </div>
+
+  <div class="field">
+    <%= f.label :descricao %><br>
+    <%= f.text_area :descricao, size: "60x10" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

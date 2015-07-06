@@ -7,7 +7,7 @@
         <a href="#">Bem Vindo, <%= current_user.email%></a>
         <ul class="dropdown">
           <li><a href="#">Editar Configurações</a></li>
-          <li class="active"><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
+          <li><%= link_to 'Logout', destroy_user_session_path, :method => :delete %></li>
         </ul>
       </li>
 <%else%>

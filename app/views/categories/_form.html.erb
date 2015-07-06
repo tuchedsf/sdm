@@ -17,10 +17,13 @@
   </div>
   <div class="field">
     <%= f.label :ativo %><br>
-    <%= radio_button_tag(:ativo, true) %>
-<%= label_tag(:age_child, "Sim") %>
-<%= radio_button_tag(:ativo, false) %>
-<%= label_tag(:age_adult, "Não") %>
+
+<%= f.radio_button :ativo, 1 %>
+<%= f.label :ativo_true, "Sim" %>
+<%= f.radio_button :ativo, 0 %>
+<%= f.label :ativo_false, "Não" %>
+
+
   </div>
   <div class="actions">
     <%= f.submit %>
