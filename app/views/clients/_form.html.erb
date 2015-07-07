@@ -1,0 +1,14 @@
+<%= simple_form_for(@client) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.collection_select(:system_id, System.all, :id, :nome) %>
+    <%= f.input :nome %>
+    <%= f.input :email %>
+    <%= f.input :telefone %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

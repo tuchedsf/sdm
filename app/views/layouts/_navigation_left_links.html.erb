@@ -2,8 +2,18 @@
 
 
 <%if user_signed_in? %>
-<li><%= link_to 'Systems', systems_path %> </li>
 <li><%= link_to 'Releases', releases_path %> </li>
+<!-- <li class="has-dropdown">
+        <a href="#">Tabelas</a>
+        <ul class="dropdown"> -->
+          <li><%= link_to 'Systems', systems_path %> </li>
+          <li><%= link_to 'Clientes', clients_path %> </li>
+          <li><%= link_to 'Categories', categories_path %> </li>
+ <!--       </ul>
+      </li> -->
+
+
+
 <%end%>
 
 <li><%= link_to 'About', page_path('about') %></li>

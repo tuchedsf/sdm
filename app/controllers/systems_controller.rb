@@ -55,6 +55,9 @@ class SystemsController < ApplicationController
   # DELETE /systems/1
   # DELETE /systems/1.json
   def destroy
+    @system.categories.destroy
+    @system.releases.destroy
+    @system.clients.destroy
     @system.destroy
     respond_to do |format|
       format.html { redirect_to systems_url, notice: 'System was successfully destroyed.' }
