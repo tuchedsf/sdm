@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
 
+  authenticated :user do
+    root to: 'admin#home', as: :authenticated_root
+  end
+
+  unauthenticated do
+    root :to => "visitors#new"
+  end
 
   resources :clients
 
   devise_for :users
-
-  root to: 'visitors#new'
 
   resources :categories
 
@@ -14,6 +19,8 @@ Rails.application.routes.draw do
   resources :systems
 
   resources :contacts, only: [:new,:create]
+
+  resources :calleds
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

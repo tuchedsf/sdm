@@ -7,4 +7,5 @@ class System < ActiveRecord::Base
   has_many :releases, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_many :clients, dependent: :destroy
+  has_many :calleds, dependent: :destroy
 end

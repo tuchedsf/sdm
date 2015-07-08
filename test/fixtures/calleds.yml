@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  system_id: 1
+  tipo: 
+  identificador: 1
+  descricao: MyString
+  data: 2015-07-07
+
+two:
+  system_id: 1
+  tipo: 
+  identificador: 1
+  descricao: MyString
+  data: 2015-07-07

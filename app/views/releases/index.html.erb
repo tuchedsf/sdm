@@ -16,7 +16,7 @@
       <tr>
         <td><%= release.system.nome %></td>
         <td><%= release.versao %></td>
-        <td><%= release.dt_implantacao %></td>
+        <td><%= formata_data(release.dt_implantacao) %></td>
         <td><%= link_to 'Show', release %></td>
         <td><%= link_to 'Edit', edit_release_path(release) %></td>
         <td><%= link_to 'Destroy', release, method: :delete, data: { confirm: 'Are you sure?' } %></td>

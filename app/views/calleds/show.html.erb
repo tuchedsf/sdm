@@ -1,0 +1,27 @@
+<p>
+  <strong>System:</strong>
+  <%= @called.system.nome %>
+</p>
+
+<p>
+  <strong>Tipo:</strong>
+  <%= @called.formata_tipo(@called.tipo) %>
+</p>
+
+<p>
+  <strong>Identificador:</strong>
+  <%= @called.identificador %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @called.descricao %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= formata_data(@called.data) %>
+</p>
+
+<%= link_to 'Edit', edit_called_path(@called) %> |
+<%= link_to 'Back', calleds_path %>
