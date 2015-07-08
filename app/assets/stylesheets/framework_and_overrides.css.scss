@@ -8,7 +8,8 @@
 .top-bar .name a {
   font-weight: normal;
   color: white;
-  padding: 0 15px; }
+  padding: 0 15px;
+}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create mixins using Foundation classes
@@ -41,9 +42,9 @@
 // to make views framework-neutral
 main {
   @include twelve-columns;
-  background-color: #eee;
+  //background-color: #eee;
   }
-section {
-  @extend .row;
-  margin-top: 20px;
-  }
+//section {
+//  @extend .row;
+ // margin-top: 20px;
+//  }
