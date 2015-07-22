@@ -2,16 +2,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 <table class="responsive">
   <thead>
     <tr>
@@ -34,8 +24,16 @@
         <td><%= item.migrado %></td>
         <td><%= link_to 'Edit', edit_office_item_path(@office,item) %></td>
         <td>
-<a href="#" data-reveal-id="secondModal" class="radius button">Editar Item</a></td>
-        </tr>
+
+          <%= link_to 'Destroy', [item.office, item],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+
+
+        </td>
+        <td>
+      <a href="#" data-reveal-id="secondModal" class="radius button">Editar Item<i class="fi-prohibited"></i></a></td>
+    </tr>
     <% end %>
   </tbody>
 </table>

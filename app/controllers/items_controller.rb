@@ -26,13 +26,12 @@ class ItemsController < ApplicationController
     end
   end
 
-
-  #def destroy
-  #  @article = Article.find(params[:article_id])
-  #  @comment = @article.comments.find(params[:id])
-  #  @comment.destroy
-  #  redirect_to article_path(@article)
-  #end
+   def destroy
+    @office = Office.find(params[:office_id])
+    @item = @office.items.find(params[:id])
+    @item.destroy
+    redirect_to office_path(@office)
+  end
 
 
    private

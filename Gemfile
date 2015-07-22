@@ -10,6 +10,10 @@ gem 'pg'
 # excutar comando de instalacao após rails layout
 # comando: rails g layout:install foundation5 --force
 gem 'foundation-rails'
+
+#gem para inluir icones ao fondation
+gem 'foundation-icons-sass-rails'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~>5.0.0'
 
@@ -50,12 +54,11 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'meta_request'
+  # 1 - gem para gerar arquivos para o layout da aplicaçao - e fazer a msm passe a utilzar
+  # HTML5, navigation links and flash messages, instalar primeiro
+  # comando para aplicar: rails g layout:install simple --force
+  gem 'rails_layout'
 end
-
-# 1 - gem para gerar arquivos para o layout da aplicaçao - e fazer a msm passe a utilzar
-# HTML5, navigation links and flash messages, instalar primeiro
-# comando para aplicar: rails g layout:install simple --force
-gem 'rails_layout'
 
 # 3- gem para facilitar a criação de formulários html.
 # insatalar depois do rails_layout e framework front-end
