@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   authenticated :user do
     root to: 'admin#home', as: :authenticated_root
   end
@@ -21,6 +22,10 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new,:create]
 
   resources :calleds
+
+  resources :offices do
+    resources :items
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

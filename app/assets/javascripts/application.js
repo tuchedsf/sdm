@@ -15,6 +15,12 @@
 //= require turbolinks
 //= require foundation
 //= require_tree .
-$(function() {
-  $(document).foundation();
+
+$(document).on('ready page:load',function(){
+  $(function() {
+    $(document).foundation();
+    $(document).foundation('reflow');
+    $(document).foundation('accordion', 'reflow');
+    $(document).foundation('reveal', 'reflow');
+  });
 });

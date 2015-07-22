@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  office_id: 1
+  mantis: 1
+  client_id: 1
+  numProcesso: MyString
+  nomeServidor: MyString
+  string: MyString
+  operacao: 
+
+two:
+  office_id: 1
+  mantis: 1
+  client_id: 1
+  numProcesso: MyString
+  nomeServidor: MyString
+  string: MyString
+  operacao: 

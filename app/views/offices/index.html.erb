@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Offices</h1>
+
+<table class="responsive">
+  <thead>
+    <tr>
+      <th>Sistema</th>
+      <th>Identificador</th>
+      <th>Sipro</th>
+      <th>Siged</th>
+      <th>Data</th>
+      <th>Ocorrencia</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @offices.each do |office| %>
+      <tr>
+        <td><%= office.system.nome %></td>
+        <td><%= office.identificador %></td>
+        <td><%= office.sipro %></td>
+        <td><%= office.siged %></td>
+        <td><%= office.dataRecebimento %></td>
+        <td><%= office.ocorrencia %></td>
+        <td><%= link_to 'Show', office %></td>
+        <td><%= link_to 'Edit', edit_office_path(office) %></td>
+        <td><%= link_to 'Destroy', office, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<%= link_to 'New Office', new_office_path, class: "button small secondary"%>

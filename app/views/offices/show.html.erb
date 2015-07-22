@@ -1,0 +1,46 @@
+<p>
+  <strong>Sistema:</strong>
+  <%= @office.system.nome %>
+</p>
+
+<p>
+  <strong>Identificador:</strong>
+  <%= @office.identificador %>
+</p>
+
+<p>
+  <strong>Sipro:</strong>
+  <%= @office.sipro %>
+</p>
+
+<p>
+  <strong>Siged:</strong>
+  <%= @office.siged %>
+</p>
+
+<p>
+  <strong>Datarecebimento:</strong>
+  <%= @office.dataRecebimento %>
+</p>
+
+<p>
+  <strong>Ocorrencia:</strong>
+  <%= @office.ocorrencia %>
+</p>
+
+<div class="large-12 small-12 columns">
+<h2>Lista Itens:</h2>
+<%= render 'items/items_index' %>
+</div>
+
+<div class="large-12 small-12 columns">
+<a href="#" data-reveal-id="firstModal" class="radius button">Novo Item</a>
+<!-- Reveal Modals begin -->
+<div id="firstModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+<%= render 'items/form_items' %>
+<a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+</div>
+
+<%= link_to 'Edit', edit_office_path(@office) %> |
+<%= link_to 'Back', offices_path %>

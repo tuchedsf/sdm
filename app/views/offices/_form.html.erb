@@ -1,0 +1,16 @@
+<%= simple_form_for(@office) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.collection_select(:system_id, System.all, :id, :nome) %>
+    <%= f.input :identificador %>
+    <%= f.input :sipro %>
+    <%= f.input :siged %>
+    <%= f.date_field :dataRecebimento %>
+    <%= f.input :ocorrencia %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

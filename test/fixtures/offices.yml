@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  identificador: MyString
+  sipro: MyString
+  siged: MyString
+  dataRecebimento: 2015-07-08
+  ocorrencia: MyString
+
+two:
+  identificador: MyString
+  sipro: MyString
+  siged: MyString
+  dataRecebimento: 2015-07-08
+  ocorrencia: MyString
