@@ -2,7 +2,8 @@
 class Called < ActiveRecord::Base
 
   belongs_to :system
-  validates_presence_of :system_id, :tipo, :identificador, :descricao, :data
+  belongs_to :category
+  validates_presence_of :system_id, :tipo, :identificador, :descricao, :data, :category_id
 
 def formata_tipo(tipo)
   if !self.tipo.nil?

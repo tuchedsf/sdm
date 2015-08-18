@@ -5,6 +5,7 @@
     <tr>
       <th>System</th>
       <th>Tipo</th>
+      <th>Categoria</th>
       <th>Identificador</th>
       <th>Data</th>
       <th>Descricao</th>
@@ -16,6 +17,7 @@
       <tr>
         <td><%= called.system.nome %></td>
         <td><%= called.formata_tipo(called.tipo) %></td>
+        <td><%= called.category.descricao %></td>
         <td><%= called.identificador %></td>
         <td><%= formata_data(called.data) %></td>
         <td><%= called.descricao %></td>

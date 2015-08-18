@@ -22,18 +22,25 @@
         <td><%= item.numProcesso %></td>
         <td><%= item.nomeServidor %></td>
         <td><%= item.migrado %></td>
-        <td><%= link_to 'Edit', edit_office_item_path(@office,item) %></td>
         <td>
 
-          <%= link_to 'Destroy', [item.office, item],
+
+
+        <%= link_to 'Edit', edit_office_item_path(@office,item)%></td>
+        <td>
+
+          <%= link_to "Destroy", [item.office, item],
                method: :delete,
                data: { confirm: 'Are you sure?' } %>
 
 
         </td>
+
+
         <td>
-      <a href="#" data-reveal-id="secondModal" class="radius button">Editar Item<i class="fi-prohibited"></i></a></td>
-    </tr>
+      </tr>
     <% end %>
   </tbody>
 </table>
+
+

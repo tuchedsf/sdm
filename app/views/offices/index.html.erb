@@ -22,7 +22,7 @@
         <td><%= office.identificador %></td>
         <td><%= office.sipro %></td>
         <td><%= office.siged %></td>
-        <td><%= office.dataRecebimento %></td>
+        <td><%= office.dataRecebimento.to_s(:data) %></td>
         <td><%= office.ocorrencia %></td>
         <td><%= link_to 'Show', office %></td>
         <td><%= link_to 'Edit', edit_office_path(office) %></td>

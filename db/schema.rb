@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716001835) do
+ActiveRecord::Schema.define(version: 20150729142254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,10 +24,11 @@ ActiveRecord::Schema.define(version: 20150716001835) do
     t.date     "data"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "category_id"
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string   "descricao",  limit: 255
+    t.string   "descricao"
     t.boolean  "ativo"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -80,8 +81,8 @@ ActiveRecord::Schema.define(version: 20150716001835) do
   add_index "releases", ["system_id"], name: "index_releases_on_system_id", using: :btree
 
   create_table "systems", force: :cascade do |t|
-    t.string   "nome",        limit: 255
-    t.string   "responsavel", limit: 255
+    t.string   "nome"
+    t.string   "responsavel"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

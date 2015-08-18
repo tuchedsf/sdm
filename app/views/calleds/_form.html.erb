@@ -2,15 +2,20 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <%= f.label :system_id, "* Sistema" %>
     <%= f.collection_select(:system_id, System.all, :id, :nome) %>
+    <%= f.label :tipo, "* Tipo" %>
     <%= f.radio_button :tipo, "O" %>
     <%= f.label :tipo_occr, "Ocorrência" %>
     <%= f.radio_button :tipo, "I" %>
     <%= f.label :tipo_inc, "Incidente" %>
+     <%= f.label :category_id, "* Categoria" %>
+    <%= f.collection_select(:category_id, Category.all, :id, :descricao)%>
 
 
     <%= f.input :identificador %>
     <%= f.input :descricao %>
+    <%= f.label :data, "* Data" %>
     <%= f.date_field :data %>
   </div>
 

@@ -71,6 +71,6 @@ class CalledsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def called_params
-      params.require(:called).permit(:system_id, :tipo, :identificador, :descricao, :data)
+      params.require(:called).permit(:system_id, :tipo, :identificador, :descricao, :data, :category_id)
     end
 end

@@ -4,9 +4,10 @@
   <div class="form-inputs">
     <%= f.collection_select(:system_id, System.all, :id, :nome) %>
     <%= f.input :identificador %>
-    <%= f.input :sipro %>
+    <%= f.input :sipro , :placeholder=>"0000-00000000-000"%>
     <%= f.input :siged %>
-    <%= f.date_field :dataRecebimento %>
+    <%= f.date_field :dataRecebimento%>
+
     <%= f.input :ocorrencia %>
   </div>
 
