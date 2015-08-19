@@ -1,6 +1,6 @@
 <h1>Listing Calleds</h1>
 
-<table class="responsive">
+<table class="dataTable" id="myTable">
   <thead>
     <tr>
       <th>System</th>
@@ -9,7 +9,7 @@
       <th>Identificador</th>
       <th>Data</th>
       <th>Descricao</th>
-      <th colspan="3">Actions</th>
+      <th>Actions</th>
     </tr>
  </thead>
   <tbody>
@@ -21,9 +21,9 @@
         <td><%= called.identificador %></td>
         <td><%= formata_data(called.data) %></td>
         <td><%= called.descricao %></td>
-        <td><%= link_to 'Show', called %></td>
-        <td><%= link_to 'Edit', edit_called_path(called) %></td>
-        <td><%= link_to 'Destroy', called, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', called %>
+        <%= link_to 'Edit', edit_called_path(called) %>
+        <%= link_to 'Destroy', called, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,3 +32,4 @@
 <br>
 
 <%= link_to 'New Called', new_called_path %>
+

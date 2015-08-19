@@ -22,5 +22,9 @@ $(document).on('ready page:load',function(){
     $(document).foundation('reflow');
     $(document).foundation('accordion', 'reflow');
     $(document).foundation('reveal', 'reflow');
-  });
+    $('#myTable').DataTable({
+        "responsive": true
+      });
+
+    });
 });
