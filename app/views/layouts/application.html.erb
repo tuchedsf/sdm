@@ -5,23 +5,32 @@
     <title><%= content_for?(:title) ? yield(:title) : "Sdm - Control" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Sdm - Control" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%# Modernizr is required for Zurb Foundation %>
-    <%= javascript_include_tag 'vendor/modernizr' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body>
-    <header>
-      <%= render 'layouts/navigation' %>
+ <body>
+    <header class="navbar navbar-fixed-top">
+          <%= render 'layouts/navigation' %>
     </header>
-    <main role="main" class="row">
-  <div class="small-12 columns">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
-</div>
-    </main>
-    <footer class="row">
-      <%= render 'layouts/footer' %>
-    </footer>
+    <div id="main" role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="col-md-12">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+          </div>
+          <footer>
+          <%= render 'layouts/footer' %>
+          </footer>
+        </div>
+      </div> <!--! end of .container -->
+    </div> <!--! end of #main -->
+
+
   </body>
+
 </html>
+
+

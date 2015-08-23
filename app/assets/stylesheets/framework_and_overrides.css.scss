@@ -1,20 +1,14 @@
 // import the CSS framework
-@import "foundation";
-@import "foundation-icons";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
-// override for the 'Home' navigation link
-.top-bar .name {
-  font-size: rem-calc(13);
-  line-height: 45px; }
-.top-bar .name a {
-  font-weight: normal;
-  color: white;
-  padding: 0 15px;
+body {
+  padding-top: 60px;
+  padding-bottom: 30px;
 }
 
-.custom-button-action-class {
-@include button(
-  $padding: rem-calc(9)
-  )
-}
+//@import "bootstrap-responsive";
+
+
+
 

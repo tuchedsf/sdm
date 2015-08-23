@@ -9,10 +9,16 @@ gem 'pg'
 # 2- framework front end para melhorar o layout da aplicação
 # excutar comando de instalacao após rails layout
 # comando: rails g layout:install foundation5 --force
-gem 'foundation-rails'
+#gem 'foundation-rails'
 
 #gem para inluir icones ao fondation
-gem 'foundation-icons-sass-rails'
+#gem 'foundation-icons-sass-rails'
+
+#1 - instalar: Bootstrap Rails with SASS
+gem 'bootstrap-sass', '~> 3.2.0'
+
+#is optional, but recommended. It automatically adds the proper vendor prefixes to your CSS code when it is compiled
+gem 'autoprefixer-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~>5.0.0'

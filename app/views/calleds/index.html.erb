@@ -1,30 +1,45 @@
-<h1>Listing Calleds</h1>
+<h1>Chamados</h1>
 
-<table class="dataTable" id="myTable">
+<table class="display nowrap dataTable dtr-column collapsed" id="example" role="grid">
   <thead>
-    <tr>
+    <tr role="row" >
+    <th class="control"></th>
       <th>System</th>
       <th>Tipo</th>
       <th>Categoria</th>
       <th>Identificador</th>
       <th>Data</th>
-      <th>Descricao</th>
       <th>Actions</th>
     </tr>
  </thead>
   <tbody>
     <% @calleds.each do |called| %>
-      <tr>
+      <tr role="row" class="parent">
+        <td class=" control"></td>
         <td><%= called.system.nome %></td>
         <td><%= called.formata_tipo(called.tipo) %></td>
         <td><%= called.category.descricao %></td>
         <td><%= called.identificador %></td>
         <td><%= formata_data(called.data) %></td>
-        <td><%= called.descricao %></td>
+
         <td><%= link_to 'Show', called %>
         <%= link_to 'Edit', edit_called_path(called) %>
         <%= link_to 'Destroy', called, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
+
+      <tr class="child">
+          <td class="child">
+          <ul>
+            <li>
+                <span class="dtr-title">Descricao:</span>
+                <span class="dtr-data"><%= called.descricao %></span>
+            </li>
+          </ul>
+          </td>
+      </tr>
+
+
     <% end %>
   </tbody>
 </table>

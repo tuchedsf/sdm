@@ -13,18 +13,54 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require foundation
+//= require bootstrap-sprockets
 //= require_tree .
-
 $(document).on('ready page:load',function(){
   $(function() {
-    $(document).foundation();
-    $(document).foundation('reflow');
-    $(document).foundation('accordion', 'reflow');
-    $(document).foundation('reveal', 'reflow');
-    $('#myTable').DataTable({
-        "responsive": true
+
+    $('table.display').DataTable({
+        "responsive": true,
+        "language": {
+            "info": "Exibindo página _PAGE_ de _PAGES_" ,
+            "infoEmpty": "Nenhum registro encontrado",
+            "infoFiltered": " ( filtrados do total de _MAX_ registros)",
+            "emptyTable": "Não há nenhum registro na tabela",
+            "loadingRecords": "Aguarde - carregando...",
+            "lengthMenu": "Exibindo _MENU_ registros",
+            "paginate": {
+                "first": "Primeira página",
+                "last": "Última página",
+                "next": "Próxima",
+                "previous": "Anterior"
+                }
+        }
       });
 
-    });
+
+
+    $('#example').DataTable( {
+        responsive: {
+            details: {
+                type: 'column',
+                target: -1
+            }
+        },
+        columnDefs: [ {
+            className: 'control',
+            orderable: false,
+            targets:   -1
+        } ]
+    } );
+
+
+
+
+
+
+
+
+    } );
+
+
 });
+

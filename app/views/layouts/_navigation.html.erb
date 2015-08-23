@@ -1,24 +1,22 @@
-<%# navigation styled for Zurb Foundation 5 %>
 
-
-
-<nav class="top-bar top-bar docs-bar" data-topbar role="navigation">
-  <ul class="title-area">
-    <li class="name">
-      <h1><%= link_to "Sdm-Control", root_path %></a></h1>
-    </li>
-    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-  </ul>
-  <section class="top-bar-section">
-    <ul class="left">
-     <%= render 'layouts/navigation_left_links' %>
-    </ul>
-
-    <ul class="right">
-       <%= render 'layouts/navigation_rigth_links' %>
-    </ul>
-  </div>
-</nav>
-
-
-
+ <nav class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">SDM-Control</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+             <%= render 'layouts/navigation_left_links' %>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            <%= render 'layouts/navigation_rigth_links' %>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
