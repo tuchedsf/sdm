@@ -1,0 +1,69 @@
+<h2> items index </h2>
+
+
+<div class="row" id="container-items">
+  <%= render "items/items" %>
+</div>
+
+
+<br>
+
+<div class="row">
+  <div class="text-center">
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myNewItem">
+    Novo Item
+  </button>
+  </div>
+</div>
+
+
+
+<!-- inicio formulario com modal para alteracao de novos dados -->
+<%= simple_form_for([@office, @office.items.build]) do |f| %>
+
+  <div class="modal fade" id="myNewItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Items - Cadastrar Items</h4>
+      </div>
+
+
+      <div class="modal-body">
+        <%= f.error_notification %>
+        <%= f.hidden_field :office_id, :value => @office.id %>
+          <div class="field">
+            <%= f.collection_select(:client_id, Client.all, :id, :nome, {prompt: "Selecione o relator"}, {class: "form-control item_client_id"} )%>
+          </div>
+          <div class="field">
+            <%= f.input :mantis, class: "form-control item_mantis"%>
+          </div>
+          <div class="field">
+            <%= f.input :numProcesso, class: "form-control item_numProcesso" %>
+          </div>
+          <div class="field">
+            <%= f.input :nomeServidor, class: "form-control item_nomeServidor" %>
+          </div>
+          <div class="field">
+            <%= f.input :migrado, class: "form-control item_migrado" %>
+          </div>
+          <div class="field">
+            <%= f.input :operacao, class: "form-control item_operacao" %>
+          </div>
+      </div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <%= f.button :submit, "Salvar", class: "btn btn-primary" %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<% end %>

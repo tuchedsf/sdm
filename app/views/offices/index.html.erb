@@ -1,8 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Offices</h1>
 
-<table class="responsive">
+<table id="myTable" class="display nowrap" cellspacing="0" width="100%">
   <thead>
     <tr>
       <th>Sistema</th>
@@ -11,7 +9,7 @@
       <th>Siged</th>
       <th>Data</th>
       <th>Ocorrencia</th>
-      <th colspan="3"></th>
+      <th>Actions</th>
     </tr>
   </thead>
 
@@ -24,9 +22,10 @@
         <td><%= office.siged %></td>
         <td><%= office.dataRecebimento.to_s(:data) %></td>
         <td><%= office.ocorrencia %></td>
-        <td><%= link_to 'Show', office %></td>
-        <td><%= link_to 'Edit', edit_office_path(office) %></td>
-        <td><%= link_to 'Destroy', office, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', office %>
+        <%= link_to 'Edit', edit_office_path(office) %>
+        <%= link_to 'Destroy', office, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>

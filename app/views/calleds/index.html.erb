@@ -24,7 +24,7 @@
         <%= link_to 'Edit', edit_called_path(called) %>
         <%= link_to 'Destroy', called, method: :delete, data: { confirm: 'Are you sure?' } %></td>
        <td>
-          <textarea rows="3" cols="100" name="descricao" readonly="true"><%= called.descricao %> </textarea></td>
+          <textarea class="form-control" rows="3" cols="100" name="descricao" readonly="true"><%= called.descricao %> </textarea></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,96 @@
+<table id="myTable" class="display nowrap" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Solicitante</th>
+      <th>N. Mantis</th>
+      <th>Num.Processo</th>
+      <th>Nome Servidor</th>
+      <th>Migrado</th>
+      <th>Ações</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @office.items.each do |item| %>
+      <tr>
+        <td><%= item.client.nome %></td>
+        <td><%= item.mantis %></td>
+        <td><%= item.numProcesso %></td>
+        <td><%= item.nomeServidor %></td>
+        <td><%= item.migrado %></td>
+        <td>
+          <div class="btn-group" role="group">
+            <p><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myEditItem">
+                     Editar</button>
+            <%= link_to "Destroy", [item.office, item],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
+
+
+
+          </div>
+        </td>
+        <td>
+                  <textarea class="form-control" rows="3" cols="100" name="operacao" readonly="true"><%= item.operacao %>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           </textarea></td>
+        <td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<!-- inicio formulario com modal para inclusao de novos dados -->
+<%= simple_form_for([@office, @office.item]) do |f| %>
+
+  <div class="modal fade" id="myEditItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Items - Editar Items</h4>
+      </div>
+
+
+      <div class="modal-body">
+        <%= f.error_notification %>
+        <%= f.hidden_field :office_id, :value => @office.id %>
+          <div class="field">
+            <%= f.collection_select(:client_id, Client.all, :id, :nome, {prompt: "Selecione o relator"}, {class: "form-control item_client_id"} )%>
+          </div>
+          <div class="field">
+            <%= f.input :mantis, class: "form-control item_mantis"%>
+          </div>
+          <div class="field">
+            <%= f.input :numProcesso, class: "form-control item_numProcesso" %>
+          </div>
+          <div class="field">
+            <%= f.input :nomeServidor, class: "form-control item_nomeServidor" %>
+          </div>
+          <div class="field">
+            <%= f.input :migrado, class: "form-control item_migrado" %>
+          </div>
+          <div class="field">
+            <%= f.input :operacao, class: "form-control item_operacao" %>
+          </div>
+      </div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <%= f.button :submit, "Salvar", class: "btn btn-primary" %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<% end %>
+
+
+
