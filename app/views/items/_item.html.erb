@@ -1,0 +1,72 @@
+
+<div class="box text-center col-md-4" id="item_<%= item.id %>">
+    <div class="panel panel-default">
+  <div class="panel-heading">Mantis: <%= item.mantis %> - Processo: <%= item.numProcesso %></div>
+    <div class="panel-body">
+        <p><%= item.client.nome %></p>
+        <!-- <p><%= item.mantis %></p>
+         <p><%= item.numProcesso %></p> -->
+        <p><%= item.nomeServidor %></p>
+        <p><%= item.migrado %></p>
+        <p>       <textarea class="form-control" rows="3" cols="100" name="operacao" readonly="true"><%= item.operacao %>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           </textarea></p>
+            <p><button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#myEditItem_<%= item.id %>">
+                     Editar</button>
+            <%= link_to "Destroy", [item.office, item],
+                 method: :delete,
+                 data: { confirm: 'Are you sure?' }, class: "btn btn-xs btn-danger", remote: true %></p>
+      </div>
+  </div>
+<!-- inicio formulario com modal para inclusao de novos dados -->
+<%= simple_form_for([item.office, item], :method => :put, remote: true ) do |f| %>
+
+  <div class="modal fade" id="myEditItem_<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="myModalLabel">Items - Editar Items</h4>
+      </div>
+
+
+      <div class="modal-body">
+        <%= f.error_notification %>
+        <%= f.hidden_field :office_id, :value => item.office.id %>
+          <div class="field">
+            <%= f.collection_select(:client_id, Client.all, :id, :nome, {prompt: "Selecione o relator"}, {class: "form-control"} )%>
+          </div>
+          <div class="field">
+            <%= f.input :mantis, class: "form-control"%>
+          </div>
+          <div class="field">
+            <%= f.input :numProcesso, class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.input :nomeServidor, class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.input :migrado, class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.input :operacao, class: "form-control" %>
+          </div>
+      </div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <%= f.button :submit, "Salvar", class: "btn btn-primary" %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<% end %>
+</div>
+
+

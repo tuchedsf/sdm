@@ -1,0 +1,23 @@
+//Comando para fechar o modal js após a inserção de um novo item.
+$("#myNewItem").modal('hide');
+
+//Comandos para limpar os campos após a inclusão de um novo item.
+$(".item_client_id").val('');
+$("#item_mantis").val('');
+$("#item_numProcesso").val('');
+$("#item_nomeServidor").val('');
+$("#item_migrado").val('');
+$("#item_operacao").val('');
+
+//Comando para recarregar a lista de items no container de items.
+//$("#myTable").append('<tr><%= j render @item %> </tr>');
+$("#container-items").append('<%= j render @item %>');
+$("#item_<%= @item.id %>").hide().fadeIn(1000);
+
+
+//alert("antes");
+//$("#myTable").hide().fadeIn('fast');
+//alert("depos");
+
+
+//$("#item_<%= @item.id %>").hide.fadeIn(1000);

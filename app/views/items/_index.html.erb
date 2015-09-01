@@ -1,9 +1,27 @@
 <h2> items index </h2>
 
 
-<div class="row" id="container-items">
-  <%= render "items/items" %>
-</div>
+
+
+<!-- <table id="myTable" class="display nowrap" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+      <th>Solicitante</th>
+      <th>N. Mantis</th>
+      <th>Num.Processo</th>
+      <th>Nome Servidor</th>
+      <th>Migrado</th>
+      <th>Ações</th>
+      <th>Descrição</th>
+    </tr>
+  </thead>
+
+  <tbody>-->
+  <div class="row" id="container-items">
+    <%= render @items %>
+    </div>
+ <!--  </tbody>
+</table> -->
 
 
 <br>
@@ -20,7 +38,7 @@
 
 
 <!-- inicio formulario com modal para alteracao de novos dados -->
-<%= simple_form_for([@office, @office.items.build]) do |f| %>
+<%= simple_form_for([@office, @office.items.build], remote: true) do |f| %>
 
   <div class="modal fade" id="myNewItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -36,30 +54,31 @@
       <div class="modal-body">
         <%= f.error_notification %>
         <%= f.hidden_field :office_id, :value => @office.id %>
+
           <div class="field">
             <%= f.collection_select(:client_id, Client.all, :id, :nome, {prompt: "Selecione o relator"}, {class: "form-control item_client_id"} )%>
+         </div>
+          <div class="field">
+            <%= f.input :mantis, :label => 'Núm. Mantis:    ', id: "item_mantis",class: "form-control item_mantis"%>
           </div>
           <div class="field">
-            <%= f.input :mantis, class: "form-control item_mantis"%>
+            <%= f.input :numProcesso, :label => 'Núm. Processo: ', id: "item_numProcesso", class: "form-control item_numProcesso" %>
           </div>
           <div class="field">
-            <%= f.input :numProcesso, class: "form-control item_numProcesso" %>
+            <%= f.input :nomeServidor, :label => 'Nome Servidor:', id: "item_nomeServidor", class: "form-control item_nomeServidor" %>
           </div>
           <div class="field">
-            <%= f.input :nomeServidor, class: "form-control item_nomeServidor" %>
+            <%= f.input :migrado,  id: "item_migrado", class: "form-control item_migrado" %>
           </div>
           <div class="field">
-            <%= f.input :migrado, class: "form-control item_migrado" %>
-          </div>
-          <div class="field">
-            <%= f.input :operacao, class: "form-control item_operacao" %>
+            <%= f.input :operacao,:label => 'Descrição:    ',  id: "item_operacao", class: "form-control item_operacao" %>
           </div>
       </div>
 
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <%= f.button :submit, "Salvar", class: "btn btn-primary" %>
+        <%= f.button :submit, "Salvar", id: "btn-salvar", class: "btn btn-primary" %>
       </div>
 
     </div>
