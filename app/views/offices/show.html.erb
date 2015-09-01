@@ -28,13 +28,14 @@
   <strong>Ocorrencia:</strong>
   <%= @office.ocorrencia %>
 </p>
-
+<br>
+<%= link_to 'Edit', edit_office_path(@office) %>
 <br>
 <hr>
 
   <%= render 'items/index'%>
 
 <hr>
-
+<%= link_to "Voltar", offices_path, class: "btn btn-sm btn-default"%>
 <%= link_to 'Edit', edit_office_path(@office) %> |
 <%= link_to 'Back', offices_path %>

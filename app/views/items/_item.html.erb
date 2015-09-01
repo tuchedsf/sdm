@@ -3,15 +3,14 @@
     <div class="panel panel-default">
   <div class="panel-heading">Mantis: <%= item.mantis %> - Processo: <%= item.numProcesso %></div>
     <div class="panel-body">
-        <p><%= item.client.nome %></p>
-        <!-- <p><%= item.mantis %></p>
-         <p><%= item.numProcesso %></p> -->
-        <p><%= item.nomeServidor %></p>
-        <p><%= item.migrado %></p>
+
+        <div align="left">
+        <p><b>Relator:</b> <%= item.client.nome %></p>
+        <p><b>Servidor:</b><%= item.nomeServidor %></p>
+        <p><b>Migrado? </b><%= item.migrado %></p>
         <p>       <textarea class="form-control" rows="3" cols="100" name="operacao" readonly="true"><%= item.operacao %>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            </textarea></p>
+        </div>
             <p><button type="button" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#myEditItem_<%= item.id %>">
                      Editar</button>
             <%= link_to "Destroy", [item.office, item],

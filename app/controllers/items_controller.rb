@@ -3,12 +3,6 @@ class ItemsController < ApplicationController
   before_action  :authenticate_user!
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
-  /def index
-   # @items = Item.all
-    @item = Item.new
-  end/
-
-
   def create
     @office = Office.find(params[:office_id])
     @item = @office.items.create(item_params)
@@ -25,25 +19,10 @@ class ItemsController < ApplicationController
       end
     end
 
-
-
-
   end
 
-  #def edit
-    #@office = Office.find(params[:office_id])
-    #@item = @office.items.find(@item)
-  #end
-
   def update
-    #if @item.update_attributes(item_params)
-     # @office = Office.find(@item.office_id)
-      #redirect_to office_path(@office)
-    #end
        @office = Office.find(@item.office_id)
-       #@item = @office.items.find(@item.id)
-
-      # Rails.logger.debug "DEBUG: params are #{@item}"
      respond_to do |format|
       if @item.update_attributes(item_params)
         format.html { redirect_to @item, notice: 'Called was successfully created.' }
@@ -59,11 +38,6 @@ class ItemsController < ApplicationController
   end
 
    def destroy
-    #@office = Office.find(params[:office_id])
-    #@item = @office.items.find(params[:id])
-    #@item.destroy
-    #redirect_to office_path(@office)
-
     respond_to do |format|
       if @item.destroy
         format.html { redirect_to @item, notice: 'Called was successfully destroyd.' }
@@ -82,7 +56,7 @@ class ItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
-      Rails.logger.debug "DEBUG: params are #{@item}"
+      #Rails.logger.debug "DEBUG: params are #{@item}"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
