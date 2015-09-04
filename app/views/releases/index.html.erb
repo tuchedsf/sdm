@@ -8,6 +8,7 @@
       <th>Versão</th>
       <th>Data Implantação</th>
       <th>Ações</th>
+      <th>Descrição</th>
     </tr>
   </thead>
 
@@ -20,11 +21,16 @@
         <td><%= link_to 'Show', release %>
         <%= link_to 'Edit', edit_release_path(release) %>
         <%= link_to 'Destroy', release, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td>
+          <textarea class="form-control" rows="3" cols="100" name="descricao" readonly="true"><%= release.descricao %> </textarea></td>
+      </tr>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<div align="center">
+<%= button_to('Novo Release', new_release_path, :method => :get, :class => 'btn btn-primary')  %>
+</div>
 
-<%= link_to 'New Release', new_release_path %>

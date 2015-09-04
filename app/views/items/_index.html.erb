@@ -1,35 +1,15 @@
-<h2>Lista Itens:</h2>
+<h4>Lista Itens:</h4>
 
-
-
-
-<!-- <table id="myTable" class="display nowrap" cellspacing="0" width="100%">
-  <thead>
-    <tr>
-      <th>Solicitante</th>
-      <th>N. Mantis</th>
-      <th>Num.Processo</th>
-      <th>Nome Servidor</th>
-      <th>Migrado</th>
-      <th>Ações</th>
-      <th>Descrição</th>
-    </tr>
-  </thead>
-
-  <tbody>-->
   <div class="row" id="container-items">
     <%= render @items %>
-    </div>
- <!--  </tbody>
-</table> -->
-
+  </div>
 
 <br>
 
 <div class="row">
   <div class="text-center">
   <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myNewItem">
+  <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#myNewItem" id="btnNovo">
     Novo Item
   </button>
   </div>
@@ -55,23 +35,33 @@
         <%= f.error_notification %>
         <%= f.hidden_field :office_id, :value => @office.id %>
 
-          <div class="field">
+        <div class="form-group">
+            <label for="item_client_id" class="control-label">Relator:</label>
             <%= f.collection_select(:client_id, Client.all, :id, :nome, {prompt: "Selecione o relator"}, {class: "form-control item_client_id"} )%>
-         </div>
-          <div class="field">
-            <%= f.input :mantis, :label => 'Núm. Mantis:    ', id: "item_mantis",class: "form-control item_mantis"%>
+        </div>
+
+          <div class="form-group">
+           <label for="item_mantis" class="control-label">Mantis:</label>
+            <%= f.input :mantis, label: false, id: "item_mantis",class: "form-control item_mantis"%>
           </div>
-          <div class="field">
-            <%= f.input :numProcesso, :label => 'Núm. Processo: ', id: "item_numProcesso", class: "form-control item_numProcesso" %>
+          <div class="form-group">
+           <label for="item_numProcesso" class="control-label">Número Processo:</label>
+            <%= f.input :numProcesso, label: false, id: "item_numProcesso", class: "form-control item_numProcesso" %>
           </div>
-          <div class="field">
-            <%= f.input :nomeServidor, :label => 'Nome Servidor:', id: "item_nomeServidor", class: "form-control item_nomeServidor" %>
+          <div class="form-group">
+           <label for="item_nomeServidor" class="control-label">Nome Servidor:</label>
+            <%= f.input :nomeServidor, label: false, id: "item_nomeServidor", class: "form-control item_nomeServidor" %>
           </div>
-          <div class="field">
-            <%= f.input :migrado,  id: "item_migrado", class: "form-control item_migrado" %>
+          <div class="form-group">
+            <%= f.label :migrado, "* Processo Migrado?  " %>
+            <%= f.radio_button :migrado, true %>
+            <%= f.label :migrado_desc, "Sim" %>
+            <%= f.radio_button :migrado, false %>
+            <%= f.label :migrado_desc, "Não" %>
           </div>
-          <div class="field">
-            <%= f.input :operacao,:label => 'Descrição:    ',  id: "item_operacao", class: "form-control item_operacao" %>
+          <div class="form-group">
+           <label for="item_operacao" class="control-label">Descrição:</label>
+             <%= f.input :operacao, label: false,id: "item_operacao", class: "form-control item_operacao", :input_html => {:rows => 3 } %>
           </div>
       </div>
 

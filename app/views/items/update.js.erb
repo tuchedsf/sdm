@@ -2,7 +2,7 @@ $("#myEditItem_<%= @item.id %>").modal('hide');
 
 $("#item_<%= @item.id %>").fadeOut(500, function(){
   $(this).remove();
-  $("#container-items").prepend('<%= j render @item %>');
+  $("#container-items").append('<%= j render @item %>');
 
 });
 

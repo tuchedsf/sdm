@@ -22,14 +22,11 @@
     <%= f.text_field :descricao %>
   </div>
   <div class="field">
-    <%= f.label :ativo %><br>
-
-<%= f.radio_button :ativo, 1 %>
-<%= f.label :ativo_true, "Sim" %>
-<%= f.radio_button :ativo, 0 %>
-<%= f.label :ativo_false, "Não" %>
-
-
+            <%= f.label :ativo, "* Ativo?  " %>
+            <%= f.radio_button :ativo, true %>
+            <%= f.label :ativo_desc, "Sim" %>
+            <%= f.radio_button :ativo, false %>
+            <%= f.label :ativo_desc, "Não" %>
   </div>
   <div class="actions">
     <%= f.submit %>

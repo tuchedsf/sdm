@@ -3,11 +3,13 @@ $("#myNewItem").modal('hide');
 
 //Comandos para limpar os campos após a inclusão de um novo item.
 $(".item_client_id").val('');
-$("#item_mantis").val('');
+$(".item_mantis").val('');
+
+/*
 $("#item_numProcesso").val('');
 $("#item_nomeServidor").val('');
 $("#item_migrado").val('');
-$("#item_operacao").val('');
+$("#item_operacao").val(''); */
 
 //Comando para recarregar a lista de items no container de items.
 //$("#myTable").append('<tr><%= j render @item %> </tr>');
@@ -21,3 +23,17 @@ $("#item_<%= @item.id %>").hide().fadeIn(1000);
 
 
 //$("#item_<%= @item.id %>").hide.fadeIn(1000);
+
+/*$( "#btnNovo" ).click(function() {
+  alert("limpar");
+
+  $(".item_client_id").val('');
+$("#item_mantis").val('');
+$("#item_numProcesso").val('');
+$("#item_nomeServidor").val('');
+$("#item_migrado").val('');
+$("#item_operacao").val('');
+
+
+
+}); */
