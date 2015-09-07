@@ -18,7 +18,7 @@
 
 
 <!-- inicio formulario com modal para alteracao de novos dados -->
-<%= simple_form_for([@office, @office.items.build], remote: true) do |f| %>
+<%= simple_form_for([@office, @office.items.build], id: "form", remote: true) do |f| %>
 
   <div class="modal fade" id="myNewItem" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
