@@ -1,6 +1,7 @@
 <h1>Categorias</h1>
 
-<table id="myTable" class="display nowrap" cellspacing="0" width="100%">
+<table id="categorias" class="display table table-striped"
+      cellspacing="0" width="100%" data-source="<%= categories_url(format: "json") %> ">
   <thead>
     <tr>
       <th>Sistema</th>
@@ -11,16 +12,7 @@
   </thead>
 
   <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.system.nome %></td>
-        <td><%= category.descricao %></td>
-        <td><%= formata_SimNao(category.ativo) %></td>
-        <td><%= link_to 'Show', category %>
-        <%= link_to 'Edit', edit_category_path(category) %>
-        <%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+
   </tbody>
 </table>
 

@@ -5,7 +5,12 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
+    #@categories = Category.all
+    respond_to do |format|
+      format.html
+      #Rails.logger.debug "DEBUG: params are #{view_context}"
+      format.json { render json: CategoriesDataTable.new(view_context)}
+    end
   end
 
   # GET /categories/1
