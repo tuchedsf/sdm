@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/antillas21/ajax-datatables-rails.git
+  revision: aab56a950787ca27a8c268e2e3639ab43a2ccd46
+  branch: master
+  specs:
+    ajax-datatables-rails (0.3.1)
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -181,6 +189,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ajax-datatables-rails!
   autoprefixer-rails
   better_errors
   binding_of_caller

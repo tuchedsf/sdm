@@ -3,9 +3,11 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-$(document).on 'ready page:load', ->
-  $ ->
-    $('#categorias').DataTable
+    return $('#categories').DataTable
+     # processing: true
+     # serverSide: true
+     # ajax: $('#categories').data('source')
+      pagingType: 'full_numbers'
       'language':
         'info': 'Exibindo página _PAGE_ de _PAGES_'
         'infoEmpty': 'Nenhum registro encontrado'
@@ -13,14 +15,9 @@ $(document).on 'ready page:load', ->
         'emptyTable': 'Não há nenhum registro na tabela'
         'loadingRecords': 'Aguarde - carregando...'
         'lengthMenu': 'Exibindo _MENU_ registros'
-        'bProcessing': true
-        'bServerSide': true
-        'sAjaxSource': $('#categorias').data('source')
         'paginate':
           'first': 'Primeira página'
           'last': 'Última página'
           'next': 'Próxima'
           'previous': 'Anterior'
       responsive: {}
-    return
-  return

@@ -91,3 +91,7 @@ end
 
 #data-tables
 gem 'jquery-datatables-rails', '~> 3.3.0'
+
+#ajax-data-tables-rails - inclui funcionalidades como paginacao, tratamento server-side dos dados formenidos
+#para alimentação da datatable,
+gem 'ajax-datatables-rails', git: 'git://github.com/antillas21/ajax-datatables-rails.git', branch: 'master'

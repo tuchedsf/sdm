@@ -1,17 +1,17 @@
 class CategoriesController < ApplicationController
-  before_action  :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   # GET /categories
   # GET /categories.json
   def index
-    #@categories = Category.all
-    respond_to do |format|
-      format.html
-      #Rails.logger.debug "DEBUG: params are #{view_context}"
-      format.json { render json: CategoriesDataTable.new(view_context)}
-    end
-  end
+    @categories = Category.all
+
+   # respond_to do |format|
+   #   format.html
+   #   format.json { render json: CategoryDatatable.new(view_context)}
+   # end
+   end
 
   # GET /categories/1
   # GET /categories/1.json
