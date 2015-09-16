@@ -1,29 +1,18 @@
 <h1>Categorias</h1>
 
 <table id="categories" class="display table table-striped"
-      cellspacing="0" width="100%" >
+      cellspacing="0" width="100%" data-source="<%= categories_url(format: :json)%>">
   <thead>
     <tr>
-     <!-- <th>Id</th> -->
+      <th>Id</th>
       <th>Sistema</th>
       <th>Descricao</th>
       <th>Ativo</th>
-     <th>Ações</th>
+      <th>Ações</th>
     </tr>
   </thead>
 
   <tbody>
-
-  <% @categories.each do |cat| %>
-      <tr>
-        <td><%= cat.system.nome %></td>
-        <td><%= cat.descricao %></td>
-        <td><%= formata_SimNao(cat.ativo) %></td>
-        <td><%= link_to 'Show', cat %>
-        <%= link_to 'Edit', edit_category_path(cat) %>
-        <%= link_to 'Destroy', cat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
   </tbody>
 </table>
 

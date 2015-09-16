@@ -5,12 +5,12 @@ class CategoryDatatable < AjaxDatatablesRails::Base
 
   def sortable_columns
     # Declare strings in this format: ModelName.column_name
-    @sortable_columns ||= ['category.descricao', 'category.ativo']
+    @sortable_columns ||= ['Category.id','System.nome','Category.descricao', 'Category.ativo']
   end
 
   def searchable_columns
     # Declare strings in this format: ModelName.column_name
-    @searchable_columns ||= ['category.descricao', 'category.ativo']
+    @searchable_columns ||= ['Category.id','System.nome','Category.descricao','Category.ativo']
   end
 
   private
@@ -21,17 +21,17 @@ class CategoryDatatable < AjaxDatatablesRails::Base
         record.id,
         record.system.nome,
         record.descricao,
-        formata_SimNao(record.ativo)
-        #link_to("Show", record)
-        #link_to("Edit", edit_category_path(record))
-        #link_to ('Destroy', record, method: :delete, data: { confirm: 'Are you sure?' })
+        formata_SimNao(record.ativo),
+       link_to("", record, class: "glyphicon glyphicon-zoom-in",  "data-toggle"=>"tooltip",  :title=>'Detalhar') + "    " +
+       link_to("", edit_category_path(record), class: "glyphicon glyphicon-pencil","data-toggle"=>"tooltip",  :title=>'Editar') + "  " +
+       link_to("", record, method: :delete, class: "glyphicon glyphicon-remove", "data-toggle"=>"tooltip",  :title=>'Excluir',  data: { confirm: 'Are you sure?' })
       ]
     end
   end
 
   def get_raw_records
     # insert query here
-    Category.all
+    Category.joins(:system)
   end
 
   # ==== Insert 'presenter'-like methods below if necessary

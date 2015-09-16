@@ -3,11 +3,16 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
-    return $('#categories').DataTable
-     # processing: true
-     # serverSide: true
-     # ajax: $('#categories').data('source')
-      pagingType: 'full_numbers'
+$(document).on 'ready page:load', ->
+  $ ->
+    $('#categories').DataTable
+      processing: true
+      serverSide: true
+      ajax: $('#categories').data('source')
+      'aoColumnDefs': [ {
+        'bSortable': false
+        'aTargets': [ 4 ]
+      } ]
       'language':
         'info': 'Exibindo página _PAGE_ de _PAGES_'
         'infoEmpty': 'Nenhum registro encontrado'
@@ -21,3 +26,5 @@ jQuery ->
           'next': 'Próxima'
           'previous': 'Anterior'
       responsive: {}
+    return
+  return

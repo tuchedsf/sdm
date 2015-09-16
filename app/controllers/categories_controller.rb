@@ -5,12 +5,10 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
-
-   # respond_to do |format|
-   #   format.html
-   #   format.json { render json: CategoryDatatable.new(view_context)}
-   # end
+    respond_to do |format|
+      format.html
+      format.json { render json: CategoryDatatable.new(view_context)}
+    end
    end
 
   # GET /categories/1
