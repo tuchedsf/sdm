@@ -70,8 +70,8 @@ end
 # insatalar depois do rails_layout e framework front-end
 #comando para aplicar: rails g simple_form:install --foundation
 # --fondation deve ser trocado pelo framwork que utilizar ex: fondation, --bootstrap
-gem 'simple_form'
-
+#gem 'simple_form'
+gem 'bootstrap_form'
 
 # 4- criar paginas estáticas/dinamicas que nao tenham um modelo e podem ou não ter controladores.
 # cria uma rota pages... para incluir páginas basta criar a pasta views/pages e inserir as paginas.

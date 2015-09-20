@@ -9,26 +9,24 @@
     <%= csrf_meta_tags %>
   </head>
  <body>
-    <header class="navbar navbar-fixed-top">
-          <%= render 'layouts/navigation' %>
-    </header>
-    <div id="main" role="main">
+    <!-- Fixed navbar -->
+    <%= render 'layouts/navigation' %>
+
+    <!-- Begin page content -->
+    <div class="container">
+      <div class="row">
+      <div class="col-md-12">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div>
+      </div>
+    </div>
+
+    <footer class="footer">
       <div class="container">
-        <div class="content">
-           <div class="row">
-            <div class="col-md-12">
-              <%= render 'layouts/messages' %>
-              <%= yield %>
-            </div>
-          </div>
-          <footer>
-          <%= render 'layouts/footer' %>
-          </footer>
-        </div>
-      </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
-
-
+        <%= render 'layouts/footer' %>
+      </div>
+    </footer>
   </body>
 
 </html>
