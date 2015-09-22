@@ -1,25 +1,11 @@
-<%= form_for(@system) do |f| %>
-  <% if @system.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@system.errors.count, "error") %> prohibited this system from being saved:</h2>
+<%= bootstrap_form_for(@system) do |f| %>
+  <%= f.alert_message "Verifique os erros abaixo antes de prosseguir:" %>
 
-      <ul>
-      <% @system.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :nome %><br>
     <%= f.text_field :nome %>
-  </div>
-  <div class="field">
-    <%= f.label :responsavel %><br>
     <%= f.text_field :responsavel %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    
+   <div align="center">
+     <%= f.submit %>
+     <%= link_to 'Voltar', systems_path , class: "btn btn-default"%>
+    </div>
 <% end %>

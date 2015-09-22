@@ -1,11 +1,17 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-
 jQuery ->
 $(document).on 'ready page:load', ->
   $ ->
     $('#tbClientes').DataTable
+      processing: true
+      serverSide: true
+      ajax: $('#tbClientes').data('source')
+      'aoColumnDefs': [ {
+        'bSortable': false
+        'aTargets': [ 4 ]
+      } ]
       'language':
         'info': 'Exibindo página _PAGE_ de _PAGES_'
         'infoEmpty': 'Nenhum registro encontrado'

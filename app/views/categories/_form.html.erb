@@ -1,7 +1,7 @@
 <%= bootstrap_form_for(@category) do |f| %>
   <%= f.alert_message "Verifique os erros abaixo antes de prosseguir:" %>
 
-    <%= f.collection_select(:system_id, System.all, :id, :nome) %>
+    <%= f.collection_select(:system_id, System.all, :id, :nome,{prompt: "Selecione o Sistema"}) %>
     <%= f.text_field :descricao %>
     <%= f.form_group :ativo, label: { text: "Ativo" } do %>
       <%= f.radio_button :ativo, true, label: "Sim", inline: true %>

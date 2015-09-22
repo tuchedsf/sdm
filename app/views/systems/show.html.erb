@@ -1,3 +1,6 @@
+<div class="page-header">
+  <h1>Sistema <small>- Detalhe</small></h1>
+</div>
 <p>
   <strong>Nome:</strong>
   <%= @system.nome %>
@@ -8,5 +11,5 @@
   <%= @system.responsavel %>
 </p>
 
-<%= link_to 'Edit', edit_system_path(@system) %> |
-<%= link_to 'Back', systems_path %>
+<%= link_to 'Edit', edit_system_path(@system), class: "btn btn-default" %>
+<%= link_to 'Back', systems_path, class: "btn btn-default" %>
