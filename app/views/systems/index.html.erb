@@ -15,9 +15,10 @@
       <tr>
         <td><%= system.nome %></td>
         <td><%= system.responsavel %></td>
-        <td><%= link_to 'Show', system %>
-        <%= link_to 'Edit', edit_system_path(system) %>
-        <%= link_to 'Destroy', system, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+        <%= link_to('', system, class: "glyphicon glyphicon-zoom-in",  "data-toggle"=>"tooltip",  :title=>'Detalhar') %>
+        <%= link_to('', edit_system_path(system),class: "glyphicon glyphicon-pencil","data-toggle"=>"tooltip",  :title=>'Editar' )%>
+        <%= link_to('', system, method: :delete, class: "glyphicon glyphicon-remove", "data-toggle"=>"tooltip",  :title=>'Excluir',  data: { confirm: 'Are you sure?' }) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +29,3 @@
 <div align="center">
 <%= button_to('Novo Sistema', new_system_path, :method => :get, :class => 'btn btn-primary')  %>
 </div>
-

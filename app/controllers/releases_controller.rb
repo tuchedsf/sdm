@@ -4,7 +4,11 @@ class ReleasesController < ApplicationController
 
 
   def index
-    @releases = Release.all
+    #@releases = Release.all
+    respond_to do |format|
+        format.html { }
+        format.json { render json: ReleaseDatatable.new(view_context)}
+      end
   end
 
   def show

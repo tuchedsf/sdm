@@ -6,6 +6,13 @@ jQuery ->
 $(document).on 'ready page:load', ->
   $ ->
     $('#tbReleases').DataTable
+      processing: true
+      serverSide: true
+      ajax: $('#tbReleases').data('source')
+      'aoColumnDefs': [ {
+        'bSortable': false
+        'aTargets': [ 3 , 4 ]
+      } ]
       'language':
         'info': 'Exibindo página _PAGE_ de _PAGES_'
         'infoEmpty': 'Nenhum registro encontrado'
