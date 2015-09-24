@@ -1,6 +1,7 @@
-<h1>Listing Offices</h1>
-
-<table id="tbOficios" class="display table table-striped" cellspacing="0" width="100%">
+<div class="page-header">
+<h1>Ofício <small>- Lista</small></h1>
+</div>
+<table id="tbOficios" class="display table table-striped" cellspacing="0" width="100%" data-source="<%= offices_url(format: :json) %>">
   <thead>
     <tr>
       <th>Sistema</th>
@@ -14,20 +15,6 @@
   </thead>
 
   <tbody>
-    <% @offices.each do |office| %>
-      <tr>
-        <td><%= office.system.nome %></td>
-        <td><%= office.identificador %></td>
-        <td><%= office.sipro %></td>
-        <td><%= office.siged %></td>
-        <td><%= office.dataRecebimento.to_s(:data) %></td>
-        <td><%= office.ocorrencia %></td>
-        <td><%= link_to 'Show', office %>
-        <%= link_to 'Edit', edit_office_path(office) %>
-        <%= link_to 'Destroy', office, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-      </tr>
-    <% end %>
   </tbody>
 </table>
 
@@ -35,4 +22,3 @@
 <div align="center">
 <%= button_to('Novo Ofício', new_office_path, :method => :get, :class => 'btn btn-primary')  %>
 </div>
-

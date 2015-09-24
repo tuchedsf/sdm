@@ -5,7 +5,11 @@ class OfficesController < ApplicationController
   # GET /offices
   # GET /offices.json
   def index
-    @offices = Office.all
+    #@offices = Office.all
+    respond_to do |format|
+        format.html { }
+        format.json { render json: OfficeDatatable.new(view_context)}
+      end
   end
 
   # GET /offices/1

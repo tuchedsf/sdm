@@ -1,6 +1,7 @@
-<h1>Chamados</h1>
-
-<table id="chamados" class="display table table-striped" cellspacing="0" width="100%">
+<div class="page-header">
+<h1>Release <small>- Lista</small></h1>
+</div>
+<table id="chamados" class="display table table-striped" cellspacing="0" width="100%" data-source="<%= calleds_url(format: :json) %>">
   <thead>
     <tr>
       <th>System</th>
@@ -13,20 +14,6 @@
     </tr>
  </thead>
   <tbody>
-    <% @calleds.each do |called| %>
-      <tr>
-        <td><%= called.system.nome %></td>
-        <td><%= called.formata_tipo(called.tipo) %></td>
-        <td><%= called.category.descricao %></td>
-        <td><%= called.identificador %></td>
-        <td><%= formata_data(called.data) %></td>
-        <td><%= link_to 'Show', called %>
-        <%= link_to 'Edit', edit_called_path(called) %>
-        <%= link_to 'Destroy', called, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-       <td>
-          <textarea class="form-control" rows="3" cols="100" name="descricao" readonly="true"><%= called.descricao %> </textarea></td>
-      </tr>
-    <% end %>
   </tbody>
 </table>
 

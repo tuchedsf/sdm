@@ -6,7 +6,11 @@ class CalledsController < ApplicationController
   # GET /calleds
   # GET /calleds.json
   def index
-    @calleds = Called.all
+    #@calleds = Called.all
+    respond_to do |format|
+        format.html { }
+        format.json { render json: CalledDatatable.new(view_context)}
+      end
   end
 
   # GET /calleds/1

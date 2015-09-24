@@ -1,11 +1,9 @@
-<div align="center">
-<h2> Ofícios </h2>
+<div class="page-header">
+  <h1>Ofício <small>- Detalhe</small></h1>
 </div>
-<hr>
 <p>
 <h3><span class="glyphicon glyphicon-chevron-right">
-<%= @office.system.nome %> - Ofício: <%= @office.identificador %> - OCR:<%= @office.ocorrencia %>
- - <%= link_to 'Edit', edit_office_path(@office), class: "btn btn-warning" %> </span></h3>
+<%= @office.system.nome %> - Ofício: <%= @office.identificador %> - OCR:<%= @office.ocorrencia %> </span></h3>
  </p>
 <p>
   <strong>Sistema:</strong>
@@ -31,6 +29,9 @@
   <strong>Datarecebimento:</strong>
   <%= @office.dataRecebimento.to_s(:data) %>
 </p>
+<div align="center">
+  <%= link_to 'Edit', edit_office_path(@office), class: "btn btn-warning" %>
+</div>
 <hr>
 
   <%= render 'items/index'%>

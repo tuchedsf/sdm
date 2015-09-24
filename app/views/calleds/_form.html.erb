@@ -1,25 +1,18 @@
-<%= simple_form_for(@called) do |f| %>
-  <%= f.error_notification %>
+<%= bootstrap_form_for(@called) do |f| %>
+  <%= f.alert_message "Verifique os erros abaixo antes de prosseguir:" %>
 
-  <div class="form-inputs">
-    <%= f.label :system_id, "* Sistema" %>
-    <%= f.collection_select(:system_id, System.all, :id, :nome) %>
-    <%= f.label :tipo, "* Tipo" %>
-    <%= f.radio_button :tipo, "O" %>
-    <%= f.label :tipo_occr, "Ocorrência" %>
-    <%= f.radio_button :tipo, "I" %>
-    <%= f.label :tipo_inc, "Incidente" %>
-     <%= f.label :category_id, "* Categoria" %>
-    <%= f.collection_select(:category_id, Category.all, :id, :descricao)%>
-
-
-    <%= f.input :identificador %>
-    <%= f.input :descricao %>
-    <%= f.label :data, "* Data" %>
+    <%= f.collection_select(:system_id, System.all, :id, :nome, {prompt: "Selecione o Sistema"}) %>
+    <%= f.form_group :tipo, label: { text: "Tipo" } do %>
+      <%= f.radio_button :tipo, "O", label: "Ocorrência", inline: true %>
+      <%= f.radio_button :tipo, "I", label: "Incidente", inline: true %>
+    <% end %>
+    <%= f.collection_select(:category_id, Category.all, :id, :descricao,{prompt: "Selecione a categoria"})%>
+    <%= f.text_field :identificador %>
     <%= f.date_field :data %>
-  </div>
+    <%= f.text_area :descricao, size: "60x10" %>
 
-  <div class="actions">
-    <%= f.button :submit %>
+    <div align="center">
+      <%= f.submit %>
+    <%= link_to 'Voltar', releases_path , class: "btn btn-default"%>
   </div>
 <% end %>

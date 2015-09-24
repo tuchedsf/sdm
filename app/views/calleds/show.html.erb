@@ -1,3 +1,9 @@
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+<div class="page-header">
+  <h1>Chamados <small>- Detalhe</small></h1>
+</div>
 <p>
   <strong>System:</strong>
   <%= @called.system.nome %>
@@ -28,6 +34,10 @@
   <strong>Data:</strong>
   <%= formata_data(@called.data) %>
 </p>
-
-<%= link_to 'Edit', edit_called_path(@called) %> |
-<%= link_to 'Back', calleds_path %>
+<div align="center">
+<%= link_to 'Edit', edit_called_path(@called), class:"btn btn-default" %>
+<%= link_to 'Back', calleds_path , class: "btn btn-default"%>
+</div>
+</div>
+<div class="col-md-2"></div>
+</div>

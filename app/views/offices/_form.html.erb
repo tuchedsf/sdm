@@ -1,17 +1,17 @@
-<%= simple_form_for(@office) do |f| %>
-  <%= f.error_notification %>
+<%= bootstrap_form_for(@office) do |f| %>
+  <%= f.alert_message "Verifique os erros abaixo antes de prosseguir:" %>
 
   <div class="form-inputs">
-    <%= f.collection_select(:system_id, System.all, :id, :nome) %>
-    <%= f.input :identificador %>
-    <%= f.input :sipro , :placeholder=>"0000-00000000-000"%>
-    <%= f.input :siged %>
+    <%= f.collection_select(:system_id, System.all, :id, :nome, {prompt: "Selecione o Sistema"}) %>
+    <%= f.text_field :identificador %>
+    <%= f.text_field :sipro , :placeholder=>"0000-00000000-000"%>
+    <%= f.text_field :siged %>
     <%= f.date_field :dataRecebimento%>
-
-    <%= f.input :ocorrencia %>
+    <%= f.text_field :ocorrencia %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <div align="center">
+    <%= f.submit %>
+    <%= link_to 'Voltar', offices_path , class: "btn btn-default"%>
+</div>
 <% end %>

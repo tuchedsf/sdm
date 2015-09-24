@@ -2,11 +2,17 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-
 jQuery ->
 $(document).on 'ready page:load', ->
   $ ->
     $('#chamados').DataTable
+      processing: true
+      serverSide: true
+      ajax: $('#chamados').data('source')
+      'aoColumnDefs': [ {
+        'bSortable': false
+        'aTargets': [ 5 , 6 ]
+      } ]
       'language':
         'info': 'Exibindo página _PAGE_ de _PAGES_'
         'infoEmpty': 'Nenhum registro encontrado'

@@ -6,6 +6,13 @@ jQuery ->
 $(document).on 'ready page:load', ->
   $ ->
     $('#tbOficios').DataTable
+      processing: true
+      serverSide: true
+      ajax: $('#tbOficios').data('source')
+      'aoColumnDefs': [ {
+        'bSortable': false
+        'aTargets': [ 6 ]
+      } ]
       'language':
         'info': 'Exibindo página _PAGE_ de _PAGES_'
         'infoEmpty': 'Nenhum registro encontrado'

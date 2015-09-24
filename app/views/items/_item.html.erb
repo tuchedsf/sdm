@@ -6,8 +6,8 @@
 
         <div align="left">
         <p><b>Relator:</b> <%= item.client.nome %></p>
-        <p><b>Servidor:</b><%= item.nomeServidor %></p>
-        <p><b>Migrado? </b><%= formata_SimNao(item.migrado)%></p>
+        <p><b>Servidor:</b> <%= item.nomeServidor %></p>
+        <p><b>Migrado? </b> <%= formata_SimNao(item.migrado)%></p>
         <p>       <textarea class="form-control" rows="3" cols="100" name="operacao" readonly="true"><%= item.operacao %>
            </textarea></p>
         </div>
@@ -19,7 +19,7 @@
       </div>
   </div>
 <!-- inicio formulario com modal para inclusao de novos dados -->
-<%= simple_form_for([item.office, item], :method => :put, remote: true ) do |f| %>
+<%= bootstrap_form_for([item.office, item], :method => :put, remote: true ) do |f| %>
 
   <div class="modal fade" id="myEditItem_<%= item.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -33,48 +33,29 @@
 
 
       <div class="modal-body">
-        <%= f.error_notification %>
-        <%= f.hidden_field :office_id, :value => item.office.id %>
         <div class="form-group">
-            <label for="item_client_id" class="control-label">Relator:</label>
-            <%= f.collection_select(:client_id, Client.all, :id, :nome, {prompt: "Selecione o relator"}, {class: "form-control"} )%>
+          <%= f.alert_message "Verifique os erros abaixo antes de prosseguir:" %>
+
+          <%= f.hidden_field :office_id, :value => item.office.id %>
+          <%= f.collection_select(:client_id, Client.all, :id, :nome, {prompt: "Selecione o relator"}, {class: "form-control"} )%>
+          <%= f.text_field :mantis, label: false, id: "item_mantis",class: "form-control"%>
+          <%= f.text_field :numProcesso, label: false, id: "item_numProcesso", class: "form-control" %>
+          <%= f.text_field :nomeServidor, label: false, id: "item_nomeServidor", class: "form-control" %>
+          <%= f.form_group :migrado, label: { text: "Processo Migrado" } do %>
+            <%= f.radio_button :migrado, true, label: "Sim", inline: true %>
+            <%= f.radio_button :migrado, false, label: "Não", inline: true %>
+          <% end %>
+          <%= f.text_area :operacao, class: "form-control item_operacao", :input_html => {:rows => 3 } %>
+          </div>
         </div>
-
-          <div class="form-group">
-           <label for="item_mantis" class="control-label">Mantis:</label>
-            <%= f.input :mantis, label: false, id: "item_mantis",class: "form-control"%>
-          </div>
-          <div class="form-group">
-           <label for="item_numProcesso" class="control-label">Número Processo:</label>
-            <%= f.input :numProcesso, label: false, id: "item_numProcesso", class: "form-control" %>
-          </div>
-          <div class="form-group">
-           <label for="item_nomeServidor" class="control-label">Nome Servidor:</label>
-            <%= f.input :nomeServidor, label: false, id: "item_nomeServidor", class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :migrado, "* Processo Migrado?  " %>
-            <%= f.radio_button :migrado, true %>
-            <%= f.label :migrado_desc, "Sim" %>
-            <%= f.radio_button :migrado, false %>
-            <%= f.label :migrado_desc, "Não" %>
-          </div>
-          <div class="form-group">
-           <label for="item_operacao" class="control-label">Descrição:</label>
-             <%= f.input :operacao, label: false,id: "item_operacao", class: "form-control item_operacao", :input_html => {:rows => 3 } %>
-          </div>
-      </div>
-
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-        <%= f.button :submit, "Salvar", class: "btn btn-primary" %>
+        <%= f.submit "Salvar", class: "btn btn-primary" %>
       </div>
 
-    </div>
+
   </div>
 </div>
-
+</div>
 <% end %>
 </div>
-
-
