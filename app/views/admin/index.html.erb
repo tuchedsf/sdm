@@ -1,0 +1,22 @@
+<h1>Selecionar System</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Perfil</th>
+      <th>Selecione</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @permissions.each do |permission| %>
+      <tr>
+        <td><%= permission.system.nome %></td>
+        <td><%= permission.role %></td>
+        <td><%= link_to 'Selecionar', selecionar_system_path(permission) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

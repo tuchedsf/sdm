@@ -1,5 +1,11 @@
 class System < ActiveRecord::Base
 
+	has_many :permissions
+  has_many :users, through: :permissions
+
+  accepts_nested_attributes_for :permissions
+
+
   validates_presence_of :nome, :responsavel
 
   validates_uniqueness_of :nome

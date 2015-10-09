@@ -5,7 +5,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                  aria-expanded="false">Bem Vindo, <%= current_user.email%><span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Editar Configurações</a></li>
+                  <li><%= link_to 'Editar Perfil', edit_user_registration_path %></li>
                   <li role="separator" class="divider"></li>
                   <li class="dropdown-header">Informações</li>
                   <li><%= link_to 'Contact', new_contact_path %></li>
@@ -17,5 +17,3 @@
 <%else%>
 <li><%= link_to 'Login', new_user_session_path %></li>
 <%end%>
-
-

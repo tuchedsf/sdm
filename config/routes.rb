@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
 
   authenticated :user do
-    root to: 'admin#home', as: :authenticated_root
+    root to: 'admin#index', as: :authenticated_root
   end
 
   unauthenticated do
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :releases
 
   resources :systems
+
+  resources :permissions
 
   resources :contacts, only: [:new,:create]
 
