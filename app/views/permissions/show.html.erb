@@ -1,0 +1,20 @@
+<div class="page-header">
+  <h1>Permissõs <small>- Detalhe</small></h1>
+</div>
+<p>
+  <strong>Sistema:</strong>
+  <%= @permission.system.nome %>
+</p>
+
+<p>
+  <strong>Usuário:</strong>
+  <%= @permission.user.email %>
+</p>
+
+<p>
+  <strong>Perfil:</strong>
+  <%= @permission.role %>
+</p>
+
+<%= link_to 'Edit', edit_permission_path(@permission), class: "btn btn-default" %>
+<%= link_to 'Back', permissions_path, class: "btn btn-default" %>

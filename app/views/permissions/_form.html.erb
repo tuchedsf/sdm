@@ -1,0 +1,13 @@
+<%= bootstrap_form_for(@permission) do |f| %>
+  <%= f.alert_message "Verifique os erros abaixo antes de prosseguir:" %>
+
+  <%= f.collection_select(:system_id, System.all, :id, :nome,{prompt: "Selecione o Sistema"}) %>
+  <%= f.collection_select(:user_id, User.all, :id, :email,{prompt: "Selecione o Usuário"}) %>
+
+  <%= f.select :role, :collection => Permission.roles.keys.to_a %>
+
+   <div align="center">
+     <%= f.submit %>
+     <%= link_to 'Voltar', permissions_path , class: "btn btn-default"%>
+    </div>
+<% end %>

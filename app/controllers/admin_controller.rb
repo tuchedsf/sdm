@@ -11,7 +11,7 @@ class AdminController < ApplicationController
   end
 
 
-  def home
+  def show
     #Rails.logger.debug 'DEBUG: Enter in method new of VisitorsController'
     #flash[:notice] = 'Welcome!!'
     user_session[:system_id] = @permission.system.id

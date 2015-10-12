@@ -9,6 +9,9 @@ Rails.application.routes.draw do
     root :to => "visitors#new"
   end
 
+  resources :admin, only: [:index, :show]
+  #get 'admin/:id/purchase' => 'catalog#purchase', as: :purchase
+
   resources :clients
 
   devise_for :users
@@ -19,7 +22,7 @@ Rails.application.routes.draw do
 
   resources :systems
 
-  resources :permissions
+  resources :permissions #, only: [:new, :create, :destroy, :show, :index, :edit]
 
   resources :contacts, only: [:new,:create]
 
