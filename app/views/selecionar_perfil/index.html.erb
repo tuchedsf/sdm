@@ -13,8 +13,8 @@
       <tr>
         <td><%= permission.system.nome %></td>
         <td><%= permission.role %></td>
-        <td> <%= link_to('', admin_path(permission), class: "glyphicon glyphicon-zoom-in",  "data-toggle"=>"tooltip",  :title=>'Detalhar') %> </td>
-      </tr>
+        <td><%= link_to 'Selecionar', selecionar_perfil_path(permission) %></td>
+</tr>
     <% end %>
   </tbody>
 </table>

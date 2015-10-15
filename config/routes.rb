@@ -2,15 +2,14 @@ Rails.application.routes.draw do
 
 
   authenticated :user do
-    root to: 'admin#index', as: :authenticated_root
+    root to: 'admin#home', as: :authenticated_root
   end
 
   unauthenticated do
     root :to => "visitors#new"
   end
 
-  resources :admin, only: [:index, :show]
-  #get 'admin/:id/purchase' => 'catalog#purchase', as: :purchase
+  resources :selecionar_perfil, only: [:index, :show]
 
   resources :clients
 

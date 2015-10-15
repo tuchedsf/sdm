@@ -15,12 +15,10 @@ class ApplicationController < ActionController::Base
 
   private
     def isPerfilSelecionado
-      if user_session[:permission].nil?
-        redirect_to authenticated_root_path, :alert => "Selecione a permissão antes de continuar"
+  #    Rails.logger.debug "DEBUG: params session are #{session[:permission]}"
+      if   session[:permission].nil?
+        redirect_to selecionar_perfil_index_path, :alert => "Selecione a permissão antes de continuar"
       end
-      #flash[:error] = "You must be logged in to access this section"
-      #redirect_url permissions_path, :notice => "YOUR NOTICE" # halts request cycle
-    #  Rails.logger.debug "DEBUG: params are #{user_session[:permission]}"
     end
 
 end

@@ -1,5 +1,6 @@
 class SystemsController < ApplicationController
   before_action  :authenticate_user!
+  before_action :isPerfilSelecionado
   before_action :set_system, only: [:show, :edit, :update, :destroy]
 
   # GET /systems

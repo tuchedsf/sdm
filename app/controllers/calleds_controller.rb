@@ -1,6 +1,7 @@
 class CalledsController < ApplicationController
 
   before_action :authenticate_user!
+  before_action :isPerfilSelecionado
   before_action :set_called, only: [:show, :edit, :update, :destroy]
 
   # GET /calleds
