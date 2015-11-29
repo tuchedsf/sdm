@@ -30,8 +30,21 @@ class CategoryDatatable < AjaxDatatablesRails::Base
   end
 
   def get_raw_records
-    # insert query here
-    Category.joins(:system)
+    #Rails.logger.debug "DEBUG: params are #{perfilSelected}"
+    if isAdministrador 
+      Category.joins(:system)
+    else
+      Category.joins(:system).system_atual(systemSelected)
+
+    end
+  end
+
+  def systemSelected
+    @systemSelected ||= options[:systemSelected]
+  end
+
+  def isAdministrador
+    @isAdministrador ||= options[:isAdministrador]
   end
 
   # ==== Insert 'presenter'-like methods below if necessary

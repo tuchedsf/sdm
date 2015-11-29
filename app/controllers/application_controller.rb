@@ -20,5 +20,4 @@ class ApplicationController < ActionController::Base
         redirect_to selecionar_perfil_index_path, :alert => "Selecione a permissão antes de continuar"
       end
     end
-
 end

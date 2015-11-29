@@ -22,7 +22,9 @@ class SelecionarPerfilController < ApplicationController
     session[:system_id] = @permission.system.id
     session[:system_nome] = @permission.system.nome
     session[:role] = @permission.role
-
+    #Rails.logger.debug "DEBUG: Enter in method new of #{session[:role]}"
+    #current_user.type_of_user = @permission.role
+    #Rails.logger.debug "DEBUG: Enter in method new of #{current_user.type_of_user}"
     #print(@permission.role)
 
     #print(@permission.admin?)

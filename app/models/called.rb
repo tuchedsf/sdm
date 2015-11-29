@@ -18,6 +18,9 @@ def formata_tipo(tipo)
     end
 end
 
+#def self.da_oficina_atual(oficina)
+#  where(:veiculo_id => Veiculo.where(:pessoa_id => Cliente.where(:oficina_id => oficina) ) )
+#end
 
 
 end

@@ -1,12 +1,12 @@
 <%= bootstrap_form_for(@called) do |f| %>
   <%= f.alert_message "Verifique os erros abaixo antes de prosseguir:" %>
 
-    <%= f.collection_select(:system_id, System.all, :id, :nome, {prompt: "Selecione o Sistema"}) %>
+    <%= f.collection_select(:system_id, System.system_atual(session[:system_id]), :id, :nome, {prompt: "Selecione o Sistema"}) %>
     <%= f.form_group :tipo, label: { text: "Tipo" } do %>
       <%= f.radio_button :tipo, "O", label: "Ocorrência", inline: true %>
       <%= f.radio_button :tipo, "I", label: "Incidente", inline: true %>
     <% end %>
-    <%= f.collection_select(:category_id, Category.all, :id, :descricao,{prompt: "Selecione a categoria"})%>
+    <%= f.collection_select(:category_id, Category.system_atual(session[:system_id]), :id, :descricao,{prompt: "Selecione a categoria"})%>
     <%= f.text_field :identificador %>
     <%= f.date_field :data %>
     <%= f.text_area :descricao, size: "60x10" %>

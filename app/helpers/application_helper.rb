@@ -7,7 +7,7 @@ module ApplicationHelper
 
 
    def formata_SimNao(var)
-    Rails.logger.debug "DEBUG: params are #{var}"
+    #Rails.logger.debug "DEBUG: formata_SimNao - params are #{var}"
 
     if !var.nil?
       if var == true
@@ -36,5 +36,6 @@ module ApplicationHelper
     end
     nil
   end
+
 
 end
