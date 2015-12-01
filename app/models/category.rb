@@ -8,6 +8,11 @@ class Category < ActiveRecord::Base
   validates_uniqueness_of :descricao, :scope => :system_id
 
   def self.system_atual(system)
-   	where(:system_id => system)
-	end
+  # Rails.logger.debug "DEBUG: params are #{system_adm}"
+    if system == System.codSistemaAdministrativo
+      all
+    else
+      where(:system_id => system)
+    end
+  end
 end

@@ -31,11 +31,10 @@ class CategoryDatatable < AjaxDatatablesRails::Base
 
   def get_raw_records
     #Rails.logger.debug "DEBUG: params are #{perfilSelected}"
-    if isAdministrador 
+    if isAdministrador
       Category.joins(:system)
     else
       Category.joins(:system).system_atual(systemSelected)
-
     end
   end
 

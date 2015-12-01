@@ -29,9 +29,21 @@ class ClientDatatable < AjaxDatatablesRails::Base
   end
 
   def get_raw_records
-    # insert query here
-    Client.joins(:system)
+    if isAdministrador 
+      Client.joins(:system)
+    else
+      Client.joins(:system).system_atual(systemSelected)
+    end
   end
+
+  def systemSelected
+    @systemSelected ||= options[:systemSelected]
+  end
+
+  def isAdministrador
+    @isAdministrador ||= options[:isAdministrador]
+  end
+
 
   # ==== Insert 'presenter'-like methods below if necessary
 end

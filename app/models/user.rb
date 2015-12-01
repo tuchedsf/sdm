@@ -23,11 +23,20 @@ class User < ActiveRecord::Base
 
   def isAdministrador(sistema,perfil)
     if !sistema.nil? and !perfil.nil?
-      if sistema == 'Administração' and perfil == 'administrador'
+      if sistema == 'SDM-Admin' and perfil == 'admin_sdm'
         return true
       end
     end
     return false
+  end
+
+  def self.system_atual(system)
+  # Rails.logger.debug "DEBUG: params are #{system_adm}"
+    if system == System.codSistemaAdministrativo
+      all
+    else
+      where(:system_id => system)
+    end
   end
 
 end

@@ -9,7 +9,7 @@ class ClientsController < ApplicationController
     #@clients = Client.all
     respond_to do |format|
         format.html {}
-        format.json { render json: ClientDatatable.new(view_context)}
+        format.json { render json: ClientDatatable.new(view_context,:isAdministrador => current_user.isAdministrador(session[:system_nome],session[:role]), :systemSelected => session[:system_id])}
     end
   end
 

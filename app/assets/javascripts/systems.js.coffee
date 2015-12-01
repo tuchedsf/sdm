@@ -5,7 +5,14 @@
 jQuery ->
 $(document).on 'ready page:load', ->
   $ ->
-    $('#tbSistemas').DataTable
+    $('#systems').DataTable
+      processing: true
+      serverSide: true
+      ajax: $('#systems').data('source')
+      'aoColumnDefs': [ {
+        'bSortable': false
+        'aTargets': [ 3 ]
+      } ]
       'language':
         'info': 'Exibindo página _PAGE_ de _PAGES_'
         'infoEmpty': 'Nenhum registro encontrado'

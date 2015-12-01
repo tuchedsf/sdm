@@ -1,27 +1,19 @@
 <div class="page-header">
   <h1>Permissões <small>- Lista</small></h1>
 </div>
-<table id="tbPermissoes" class="display table table-striped" cellspacing="0" width="100%">
+<table id="permissions" class="display table table-striped"
+      cellspacing="0" width="100%" data-source="<%= permissions_url(format: :json)%>">
   <thead>
     <tr>
+      <th>Id</th>
       <th>Sistema</th>
       <th>Usuario</th>
       <th>Perfil</th>
+      <th>Ações</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @permissions.each do |permission| %>
-      <tr>
-        <td><%= permission.system.nome %></td>
-        <td><%= permission.user.email %></td>
-        <td><%= permission.role %></td>
-        <td>
-        <%= link_to('', permission, class: "glyphicon glyphicon-zoom-in",  "data-toggle"=>"tooltip",  :title=>'Detalhar') %>
-        <%= link_to('', edit_permission_path(permission),class: "glyphicon glyphicon-pencil","data-toggle"=>"tooltip",  :title=>'Editar' )%>
-        <%= link_to('', permission, method: :delete, class: "glyphicon glyphicon-remove", "data-toggle"=>"tooltip",  :title=>'Excluir',  data: { confirm: 'Are you sure?' }) %></td>
-      </tr>
-    <% end %>
   </tbody>
 </table>
 

@@ -7,7 +7,10 @@ class PermissionsController < ApplicationController
     # GET /permissions
     # GET /permissions.json
     def index
-      @permissions = Permission.all
+      respond_to do |format|
+        format.html
+        format.json { render json: PermissionDatatable.new(view_context,:isAdministrador => current_user.isAdministrador(session[:system_nome],session[:role]), :systemSelected => session[:system_id])}
+      end
     end
 
     # GET /permissions/1

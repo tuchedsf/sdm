@@ -6,7 +6,10 @@ class SystemsController < ApplicationController
   # GET /systems
   # GET /systems.json
   def index
-    @systems = System.all
+    respond_to do |format|
+      format.html
+      format.json { render json: SystemDatatable.new(view_context)}
+    end
   end
 
   # GET /systems/1

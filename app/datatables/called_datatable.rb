@@ -29,14 +29,26 @@ class CalledDatatable < AjaxDatatablesRails::Base
         link_to("", edit_called_path(record), class: "glyphicon glyphicon-pencil","data-toggle"=>"tooltip",  :title=>'Editar') + "  " +
         link_to("", record, method: :delete, class: "glyphicon glyphicon-remove", "data-toggle"=>"tooltip",  :title=>'Excluir',  data: { confirm: 'Are you sure?' }),
         '<textarea class="form-control" rows="3" cols="100" name="descricao" readonly="true">'  + record.descricao + '</textarea>'
-
       ]
     end
   end
 
   def get_raw_records
-    # insert query here
-    Called.joins(:system, :category)
+    #Rails.logger.debug "DEBUG: params are #{perfilSelected}"
+    if isAdministrador
+      Called.joins(:system, :category)
+    else
+      Called.joins(:system,:category).system_atual(systemSelected)
+
+    end
+  end
+
+  def systemSelected
+    @systemSelected ||= options[:systemSelected]
+  end
+
+  def isAdministrador
+    @isAdministrador ||= options[:isAdministrador]
   end
 
   # ==== Insert 'presenter'-like methods below if necessary

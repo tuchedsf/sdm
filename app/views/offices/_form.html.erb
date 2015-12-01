@@ -2,7 +2,7 @@
   <%= f.alert_message "Verifique os erros abaixo antes de prosseguir:" %>
 
   <div class="form-inputs">
-    <%= f.collection_select(:system_id, System.all, :id, :nome, {prompt: "Selecione o Sistema"}) %>
+    <%= f.collection_select(:system_id, System.system_atual(session[:system_id]), :id, :nome, {prompt: "Selecione o Sistema"}) %>
     <%= f.text_field :identificador %>
     <%= f.text_field :sipro , :placeholder=>"0000-00000000-000"%>
     <%= f.text_field :siged %>

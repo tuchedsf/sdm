@@ -10,7 +10,7 @@ class CategoriesController < ApplicationController
       format.html
       format.json { render json: CategoryDatatable.new(view_context,:isAdministrador => current_user.isAdministrador(session[:system_nome],session[:role]), :systemSelected => session[:system_id])}
     end
-   end
+  end
 
   # GET /categories/1
   # GET /categories/1.json
