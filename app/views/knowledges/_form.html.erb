@@ -1,0 +1,15 @@
+
+<%= bootstrap_form_for(@knowledge) do |f| %>
+  <%= f.alert_message "Verifique os erros abaixo antes de prosseguir:" %>
+
+    <%= f.collection_select(:system_id, System.system_atual(session[:system_id]), :id, :nome, {prompt: "Selecione o Sistema"}) %>
+
+    <%= f.collection_select(:user_id, User.all, :id, :email, {prompt: "Selecione o Usuario"}) %>
+
+    <%= f.text_field  :titulo %>
+    <%= f.text_field :descricao %>
+    <div align="center">
+      <%= f.submit %>
+      <%= link_to 'Voltar', knowledges_path , class: "btn btn-default"%>
+    </div>
+<% end %>

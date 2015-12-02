@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   authenticated :user do
     root to: 'admin#home', as: :authenticated_root
   end
@@ -26,6 +25,8 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new,:create]
 
   resources :calleds
+
+  resources :knowledges
 
   resources :offices do
     resources :items

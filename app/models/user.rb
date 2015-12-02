@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
   has_many :permissions
   has_many :systems, :through => :permissions
+  has_many :Knowledge
   accepts_nested_attributes_for :permissions
 
   #attr_accessor :type_of_user
