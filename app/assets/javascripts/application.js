@@ -17,6 +17,7 @@
 //= require dataTables/extras/dataTables.responsive
 //= require turbolinks
 //= require bootstrap-sprockets
+//= require tinymce-jquery
 //= require_tree .
 $(document).on('ready page:load',function(){
   $(function() {
@@ -44,4 +45,3 @@ $(document).on('ready page:load',function(){
     });
     });
 });
-

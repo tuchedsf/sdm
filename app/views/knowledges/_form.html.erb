@@ -7,7 +7,7 @@
     <%= f.collection_select(:user_id, User.all, :id, :email, {prompt: "Selecione o Usuario"}) %>
 
     <%= f.text_field  :titulo %>
-    <%= f.text_field :descricao %>
+    <%= f.text_area :descricao, :class => "tinymce", :rows => 20, :cols => 150 %>
     <div align="center">
       <%= f.submit %>
       <%= link_to 'Voltar', knowledges_path , class: "btn btn-default"%>
