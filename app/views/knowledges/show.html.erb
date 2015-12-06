@@ -1,15 +1,13 @@
+<%= tinymce_assets %>
+<%= tinymce :alternate, :language => "pt_BR"%>
+
 <div class="page-header">
   <h1>Base Conhecimento <small>- Detalhe</small></h1>
 </div>
 
 <p>
-  <strong>System:</strong>
-  <%= @knowledge.system.nome %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @knowledge.user.email %>
+  <strong>System:</strong> <%= @knowledge.system.nome %> -
+  <strong>User:</strong><%= @knowledge.user.email %>
 </p>
 
 <p>
@@ -18,8 +16,8 @@
 </p>
 
 <p>
-  <strong>Descricao:</strong>
-  <%= @knowledge.descricao %>
+<strong>Descrição:</strong>
+<%= text_area_tag :readyOnly, @knowledge.descricao, :rows => 40, :cols => 120, :class => "tinymce", :disabled=> "true",  :readonly=>"true" %>
 </p>
 
 <%= link_to 'Edit', edit_knowledge_path(@knowledge), class: "btn btn-default" %>

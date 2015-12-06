@@ -18,6 +18,8 @@ Things you may want to cover:
 - devise -> autenticação de usuários
 - jquery-datatables-rails ->  gem para integrar datatables no rails
 - ajax-datatables-rails -> gem para integrar datatables no rails
+- tinymce-rails -> gem para inclusao de comandos de formataçao de campos textarea
+- tinymce-rails-langs -> gem contendo as linguagens para traducao dos comandos.
 
 
 * Configuration

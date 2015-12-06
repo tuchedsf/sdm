@@ -23,5 +23,7 @@ module Sdm
     # For Foundation 5
     config.assets.precompile += %w( vendor/modernizr )
 
+    config.tinymce.install = :compile
+
   end
 end

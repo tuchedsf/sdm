@@ -99,3 +99,4 @@ gem 'ajax-datatables-rails', git: 'git://github.com/antillas21/ajax-datatables-r
 #gem para incluir comandos de formatacao de texto dentro de um textarea
 #gem para inluir linguagens /traducao dos comandos.
 gem 'tinymce-rails', '~> 4.3'
+gem 'tinymce-rails-langs'
